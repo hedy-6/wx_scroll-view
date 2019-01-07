@@ -1,0 +1,56 @@
+/* component/component-scroll/index.wxss */
+
+.my-scroll {
+  height: 100%;
+}
+
+.my-scroll-msgModule {
+  font-size: 14px;
+  color: #7e8a9b;
+  text-align: center;
+  overflow: hidden;
+}
+
+.my-scroll-refreshModule-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-scroll-msgModule-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.my-scroll-loadmoreModule {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-scroll-msgModule-icon-loading {
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

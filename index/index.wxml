@@ -1,0 +1,9 @@
+<view class='container'>
+  <component-scroll bind:_loadmore="loadmore" bind:_refresh="refresh" allloaded="{{allloaded}}" isEmpty="{{!loading &&list.length<=0}}">
+    <view class='list'>
+      <block wx:for="{{list}}" wx:key="{{index}}">
+        <view class='list-item'>{{item.name}}</view>
+      </block>
+    </view>
+  </component-scroll>
+</view>
