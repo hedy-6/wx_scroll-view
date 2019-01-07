@@ -1,5 +1,6 @@
 <view class='container'>
-  <component-scroll bind:_loadmore="loadmore" bind:_refresh="refresh" allloaded="{{allloaded}}" isEmpty="{{!loading &&list.length<=0}}">
+  <component-scroll pulldownDistance="100" refreshPulldownText="你再往下拉试试" refreshUndoText="你松开试试" refreshLoadingText="我在努力刷新中~" loadmoreLoadingText="正在从库里捞数据" loadmoreAllloadedText="取之不尽,用之完矣" isNeedLoadmore bind:_loadmore="loadmore" bind:_refresh="refresh"
+    allloaded="{{allloaded}}" isEmpty="{{!loading &&list.length<=0}}">
     <view class='list'>
       <block wx:for="{{list}}" wx:key="{{index}}">
         <view class='list-item'>{{item.name}}</view>

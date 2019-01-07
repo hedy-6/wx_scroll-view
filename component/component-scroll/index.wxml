@@ -1,6 +1,6 @@
 <!--component/component-scroll/index.wxml-->
 <view class='my-scroll'>
-  <scroll-view style='height: 100%;' scroll-y bindscroll="scroll" bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' bindscrolltolower="loadmore">
+  <scroll-view wx:if="{{isNeedLoadmore}}" style='height: 100%;' scroll-y bindscroll="scroll" bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' bindscrolltolower="loadmore">
     <view class='my-scroll-msgModule my-scroll-refreshModule' style='height:{{refreshHeight+"px"}};line-height:{{pulldownDistance+"px"}}'>
       <view class='my-scroll-refreshModule-content'>
         <image wx:if="{{refreshText==refreshPulldownText}}" class='my-scroll-msgModule-icon' src='../../image/arrow-down.png'></image>
@@ -14,5 +14,17 @@
       <image wx:if="{{!(allloaded&&!isEmpty)}}" class='my-scroll-msgModule-icon my-scroll-msgModule-icon-loading' src='../../image/loading.png'></image>
       <text class='my-scroll-msgModule-text'>{{loadmoreText}}</text>
     </view>
+  </scroll-view>
+
+  <scroll-view wx:else style='height: 100%;' scroll-y bindscroll="scroll" bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
+    <view class='my-scroll-msgModule my-scroll-refreshModule' style='height:{{refreshHeight+"px"}};line-height:{{pulldownDistance+"px"}}'>
+      <view class='my-scroll-refreshModule-content'>
+        <image wx:if="{{refreshText==refreshPulldownText}}" class='my-scroll-msgModule-icon' src='../../image/arrow-down.png'></image>
+        <image wx:elif="{{refreshText==refreshUndoText}}" class='my-scroll-msgModule-icon' src='../../image/arrow-top.png'></image>
+        <image wx:elif="{{refreshText==refreshLoadingText}}" class='my-scroll-msgModule-icon my-scroll-msgModule-icon-loading' src='../../image/loading.png'></image>
+        <text class='my-scroll-msgModule-text'>{{refreshText}}</text>
+      </view>
+    </view>
+    <slot></slot>
   </scroll-view>
 </view>

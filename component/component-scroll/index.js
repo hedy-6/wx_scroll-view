@@ -136,7 +136,7 @@ Component({
               })
             }
           })
-        }, 500)
+        }, 1000)
       } else {
         this.setData({
           refreshHeight: 0,
